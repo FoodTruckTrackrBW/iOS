@@ -48,7 +48,7 @@ class LoginInViewController: UIViewController {
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-        login()
+//        login()
     }
     /*
     // MARK: - Navigation
@@ -60,31 +60,31 @@ class LoginInViewController: UIViewController {
     }
     */
     
-    private func login() {
-        guard let email = emailTextField.text,
-            let password = passwordTextField.text else { return }
-        
-        gigController.signUp(with: user, completion: { error in
-            if let error = error {
-                NSLog("Error occurred during sign up: \(error)")
-            } else {
-                
-                gigController?.signIn(with: user, completion: { error in
-                    if let error = error {
-                        NSLog("Error occurred during sign in: \(error)")
-                    } else {
-                        DispatchQueue.main.async {
-                            self.dismiss(animated: true, completion: nil)
-                        }
-                    }
-                })
-                
-            }
+//    private func login() {
+//        guard let email = emailTextField.text,
+//            let password = passwordTextField.text else { return }
+//
+//        gigController.signUp(with: user, completion: { error in
+//            if let error = error {
+//                NSLog("Error occurred during sign up: \(error)")
+//            } else {
+//
+//                gigController?.signIn(with: user, completion: { error in
+//                    if let error = error {
+//                        NSLog("Error occurred during sign in: \(error)")
+//                    } else {
+//                        DispatchQueue.main.async {
+//                            self.dismiss(animated: true, completion: nil)
+//                        }
+//                    }
+//                })
+//
+//            }
         /*
         authController.signIn(email: email, password: password)
         if Auth.auth().currentUser != nil {
             self.performSegue(withIdentifier: "LoginToMainScreenShowSegue", sender: self)
         }
  */
-    }
+//    }
 }
