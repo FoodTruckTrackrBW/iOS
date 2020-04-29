@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>205526258456-vfmf1s0f2k3gugii9g890nln094lsie4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.205526258456-vfmf1s0f2k3gugii9g890nln094lsie4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBD2exMmkpn7COHHfTvU3gsi6rVvQWT2cY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>205526258456</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.StephanieBallard.FoodTruck</string>
+	<key>PROJECT_ID</key>
+	<string>foodtrucktrackr-773c5</string>
+	<key>STORAGE_BUCKET</key>
+	<string>foodtrucktrackr-773c5.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:205526258456:ios:01cdedac8ed50d8c99446d</string>
+	<key>DATABASE_URL</key>
+	<string>https://foodtrucktrackr-773c5.firebaseio.com</string>
+</dict>
+</plist>
