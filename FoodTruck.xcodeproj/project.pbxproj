@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2A442D8F7C96B7DFAE6C3968 /* Pods_FoodTruck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 117294F85DDC16E259B9B572 /* Pods_FoodTruck.framework */; };
+		5AB8611C2459525B007205EA /* MenuItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB8611B2459525B007205EA /* MenuItemController.swift */; };
+		5AB8611E24595269007205EA /* TruckController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AB8611D24595269007205EA /* TruckController.swift */; };
 		5AC9C3AA2457A2AA0055D57A /* FoodTruckTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9C3A92457A2AA0055D57A /* FoodTruckTableViewCell.swift */; };
 		5AC9C3AE2457B8B30055D57A /* FoodTruckApiController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9C3AD2457B8B30055D57A /* FoodTruckApiController.swift */; };
 		5AC9C3B02457B9CE0055D57A /* TruckDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC9C3AF2457B9CD0055D57A /* TruckDetailViewController.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		117294F85DDC16E259B9B572 /* Pods_FoodTruck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodTruck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AB8611B2459525B007205EA /* MenuItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemController.swift; sourceTree = "<group>"; };
+		5AB8611D24595269007205EA /* TruckController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckController.swift; sourceTree = "<group>"; };
 		5AC9C3A92457A2AA0055D57A /* FoodTruckTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckTableViewCell.swift; sourceTree = "<group>"; };
 		5AC9C3AD2457B8B30055D57A /* FoodTruckApiController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckApiController.swift; sourceTree = "<group>"; };
 		5AC9C3AF2457B9CD0055D57A /* TruckDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckDetailViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +93,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5AB8611A245951E1007205EA /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				C44C17322458A8DC0023B83E /* CoreDataStack.swift */,
+				C4A557C72458A3C40006607D /* FoodTruck.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		5AC9C3AB2457A2B30055D57A /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +117,8 @@
 			children = (
 				5ACD52A8245425CE00903F26 /* AuthController.swift */,
 				5AC9C3AD2457B8B30055D57A /* FoodTruckApiController.swift */,
+				5AB8611B2459525B007205EA /* MenuItemController.swift */,
+				5AB8611D24595269007205EA /* TruckController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -137,8 +152,7 @@
 		5ACD52A7245425AA00903F26 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				C4A557C72458A3C40006607D /* FoodTruck.xcdatamodeld */,
-				C44C17322458A8DC0023B83E /* CoreDataStack.swift */,
+				5AB8611A245951E1007205EA /* CoreData */,
 				5AFE7DF824592D8300E5C90D /* Truck+Convenience.swift */,
 				5AFE7DFF2459374000E5C90D /* MenuItem+Convenience.swift */,
 				5AFE7DFB24592E1400E5C90D /* TruckRepresentation.swift */,
@@ -339,12 +353,14 @@
 				5AD8D5832453C5FC00AB291E /* SceneDelegate.swift in Sources */,
 				5AC9C3B02457B9CE0055D57A /* TruckDetailViewController.swift in Sources */,
 				5AD8D5952453D6C300AB291E /* StartViewController.swift in Sources */,
+				5AB8611C2459525B007205EA /* MenuItemController.swift in Sources */,
 				5AC9C3AA2457A2AA0055D57A /* FoodTruckTableViewCell.swift in Sources */,
 				5AD8D59A2453D6F900AB291E /* SignUpViewController.swift in Sources */,
 				5ACD52A9245425CE00903F26 /* AuthController.swift in Sources */,
 				5AD8D59C2453D70900AB291E /* PreviewViewController.swift in Sources */,
 				5ACD52AC24542C1100903F26 /* UIViewController+UIAlert.swift in Sources */,
 				5AC9C3B42457E5430055D57A /* MapViewController.swift in Sources */,
+				5AB8611E24595269007205EA /* TruckController.swift in Sources */,
 				5AFE7DFC24592E1400E5C90D /* TruckRepresentation.swift in Sources */,
 				5AC9C3B62457F3C00055D57A /* MenuCollectionViewCell.swift in Sources */,
 			);

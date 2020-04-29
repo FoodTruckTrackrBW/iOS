@@ -9,7 +9,7 @@
 import Foundation
 
 class FoodTruckApiController {
-    
+//
 //    enum HTTPMethod: String {
 //        case get = "GET"
 //        case put = "PUT"
@@ -27,6 +27,8 @@ class FoodTruckApiController {
 //        case badImage
 //        case failedFetch
 //    }
+
+    
 //
 ////    var truck = [Truck]()
 //    var bearer: Bearer?
