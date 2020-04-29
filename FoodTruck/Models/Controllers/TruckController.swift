@@ -28,7 +28,31 @@ class TruckController {
         fetchTasksFromServer()
     }
     
-    func fetchTasksFromServer() {
+    func fetchTasksFromServer(completion: @escaping CompletionHandler = { _ in }) {
+        let requestURL = baseURL.appendingPathExtension("json")
         
+        URLSession.shared.dataTask(with: requestURL) { data, response, error in
+            if let error = error {
+                NSLog("Error fetching tasks: \(error)")
+                completion(.failure(.otherError))
+                return
+            }
+            
+            guard let data = data else {
+                NSLog("No data returned from fetch")
+                completion(.failure(.noData))
+                return
+            }
+            
+//            do {
+//                let taskRepresentations = Array(try JSONDecoder().decode([String : TaskRepresentation].self, from: data).values)
+//                try self.updateTasks(with: taskRepresentations)
+//                completion(.success(true))
+//            } catch {
+//                NSLog("Error decoding tasks from server: \(error)")
+//                completion(.failure(.noDecode))
+//            }
+        }.resume()
     }
 }
+
