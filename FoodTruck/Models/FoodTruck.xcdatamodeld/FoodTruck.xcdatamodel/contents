@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="16119" systemVersion="19E287" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="MenuItem" representedClassName="MenuItem" syncable="YES" codeGenerationType="class">
+        <attribute name="averageRating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="identifier" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="itemDescription" attributeType="String"/>
+        <attribute name="itemName" attributeType="String"/>
+        <attribute name="itemPrice" attributeType="Double" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="itemRatings" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[Double]"/>
+        <relationship name="truck" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Truck" inverseName="menuItem" inverseEntity="Truck"/>
+    </entity>
+    <entity name="Truck" representedClassName="Truck" syncable="YES" codeGenerationType="class">
+        <attribute name="averageRating" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="cuisineType" optional="YES" attributeType="String"/>
+        <attribute name="customerRatings" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="[Double]"/>
+        <attribute name="identifier" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="image" optional="YES" attributeType="String"/>
+        <attribute name="truckName" optional="YES" attributeType="String"/>
+        <relationship name="menuItem" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="MenuItem" inverseName="truck" inverseEntity="MenuItem"/>
+    </entity>
+    <elements>
+        <element name="MenuItem" positionX="-63" positionY="-18" width="128" height="163"/>
+        <element name="Truck" positionX="-54" positionY="18" width="128" height="148"/>
+    </elements>
+</model>
