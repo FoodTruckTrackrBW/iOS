@@ -69,8 +69,10 @@ class FoodTruckApiController {
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 201 {
                 print("Sign up was unsuccessful")
-                return completion(.failure(.failedSignUp))
+                completion(.failure(.failedSignUp))
+                return
             }
+            print("Sign up successful!")
             completion(.success(true))
         }.resume()
     }
@@ -99,7 +101,8 @@ class FoodTruckApiController {
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 201 {
                 print("Sign in was unsuccessful")
-                return completion(.failure(.failedSignIn))
+                completion(.failure(.failedSignIn))
+                return
             }
             guard let data = data else {
                 print("Data was not received")
