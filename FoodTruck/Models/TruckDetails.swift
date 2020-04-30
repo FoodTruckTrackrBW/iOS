@@ -1,5 +1,5 @@
 //
-//  Truck.swift
+//  TruckDetails.swift
 //  FoodTruck
 //
 //  Created by Stephanie Ballard on 4/29/20.

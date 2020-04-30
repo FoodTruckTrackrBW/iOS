@@ -32,6 +32,7 @@ class FoodTruckApiController {
     
     var bearer: Bearer?
     var truckDetails: [TruckDetails] = []
+    var menu: [Menu] = []
     
     private let baseURL = URL(string: "https://food-truck-trackr-bw.herokuapp.com/api")!
     
@@ -150,6 +151,48 @@ class FoodTruckApiController {
                 completion(.success(self.truckDetails))
             } catch {
                 print("Error decoding truck details object: \(error)")
+                completion(.failure(.noDecode))
+                return
+            }
+        }.resume()
+    }
+    
+    func fetchMenu(completion: @escaping (Result<[Menu], NetworkError>) -> Void) {
+        guard let bearer = bearer else {
+            completion(.failure(.noAuth))
+            return
+        }
+        
+        //https://food-truck-trackr-bw.herokuapp.com/api/diner/:id/menu
+        let menuUrl = baseURL.appendingPathComponent("diner")
+                                .appendingPathComponent(":id")
+                                .appendingPathComponent("menu")
+        var request = URLRequest(url: menuUrl)
+        request.httpMethod = HTTPMethod.get.rawValue
+        request.setValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error receiving menu details data: \(error)")
+                completion(.failure(.otherError))
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse,
+                response.statusCode == 401 {
+                completion(.failure(.badAuth))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.badData))
+                return
+            }
+            do {
+                self.menu = try self.jsonDecoder.decode([Menu].self, from: data)
+                completion(.success(self.menu))
+            } catch {
+                print("Error decoding menu object: \(error)")
                 completion(.failure(.noDecode))
                 return
             }
