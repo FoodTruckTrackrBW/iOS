@@ -8,10 +8,13 @@
 
 import UIKit
 
-class FoodTruckListViewController: UIViewController, UISearchBarDelegate {
+class FoodTruckListViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
+    
+    let foodTruckApiController = FoodTruckApiController()
+    var truckDetails: TruckDetails?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,18 +36,41 @@ class FoodTruckListViewController: UIViewController, UISearchBarDelegate {
     }
     */
 
+    private func updateViews() {
+        
+    }
+    
 }
 
 extension FoodTruckListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return foodTruckApiController.truckDetails.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TruckCell", for: indexPath) as? FoodTruckTableViewCell else { return UITableViewCell() }
+        let trucks = foodTruckApiController.truckDetails[indexPath.row]
+        cell.truck = trucks
         return cell
     }
-    
+}
+
+extension FoodTruckListViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchBarText = searchBar.text else { return }
+        foodTruckApiController.fetchTruckDetails { (result) in
+            switch result {
+            case .success(let truckDetail):
+                print(truckDetail)
+//                self.truckDetails = truckDetail
+                DispatchQueue.main.async {
+                    self.updateViews()
+                }
+            case .failure(let error):
+                print("Error fetching trucks: \(error)")
+            }
+        }
+    }
     
 }

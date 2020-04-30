@@ -11,6 +11,12 @@ import UIKit
 class FoodTruckTableViewCell: UITableViewCell {
 
     @IBOutlet weak var truckName: UILabel!
+
+    var truck: TruckDetails? {
+        didSet {
+            updateViews()
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -21,6 +27,11 @@ class FoodTruckTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    func updateViews() {
+        guard let truck = truck else { return }
+        truckName.text = truck.truckName
     }
 
 }
