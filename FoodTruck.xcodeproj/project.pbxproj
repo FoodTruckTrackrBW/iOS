@@ -34,6 +34,7 @@
 		5AF5DA65245AA1E1007E7014 /* TruckDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5DA64245AA1E1007E7014 /* TruckDetails.swift */; };
 		5AF5DA67245AAA77007E7014 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5DA66245AAA77007E7014 /* Menu.swift */; };
 		5AF5DA69245AB9F6007E7014 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AF5DA68245AB9F6007E7014 /* GoogleService-Info.plist */; };
+		5AF5DA6B245ABE51007E7014 /* UserLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5DA6A245ABE51007E7014 /* UserLogin.swift */; };
 		5AFE7DFA24592DD500E5C90D /* Truck+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE7DF824592D8300E5C90D /* Truck+Convenience.swift */; };
 		5AFE7DFC24592E1400E5C90D /* TruckRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE7DFB24592E1400E5C90D /* TruckRepresentation.swift */; };
 		5AFE7DFE24592FDE00E5C90D /* ItemRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE7DFD24592FDE00E5C90D /* ItemRepresentation.swift */; };
@@ -71,6 +72,7 @@
 		5AF5DA64245AA1E1007E7014 /* TruckDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckDetails.swift; sourceTree = "<group>"; };
 		5AF5DA66245AAA77007E7014 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
 		5AF5DA68245AB9F6007E7014 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5AF5DA6A245ABE51007E7014 /* UserLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLogin.swift; sourceTree = "<group>"; };
 		5AFE7DF824592D8300E5C90D /* Truck+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Truck+Convenience.swift"; sourceTree = "<group>"; };
 		5AFE7DFB24592E1400E5C90D /* TruckRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckRepresentation.swift; sourceTree = "<group>"; };
 		5AFE7DFD24592FDE00E5C90D /* ItemRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRepresentation.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 				5AF5DA64245AA1E1007E7014 /* TruckDetails.swift */,
 				5AF5DA66245AAA77007E7014 /* Menu.swift */,
 				5AF5DA62245A4626007E7014 /* User.swift */,
+				5AF5DA6A245ABE51007E7014 /* UserLogin.swift */,
 				5AC9C3AC2457B8880055D57A /* Controllers */,
 			);
 			path = Models;
@@ -362,6 +365,7 @@
 				C44C17352458A8EE0023B83E /* ConvenienceInits.swift in Sources */,
 				5AD8D5812453C5FC00AB291E /* AppDelegate.swift in Sources */,
 				C44C17332458A8DC0023B83E /* CoreDataStack.swift in Sources */,
+				5AF5DA6B245ABE51007E7014 /* UserLogin.swift in Sources */,
 				5AFE7E002459374000E5C90D /* MenuItem+Convenience.swift in Sources */,
 				5AD8D5982453D6E900AB291E /* LoginInViewController.swift in Sources */,
 				5AFE7DFE24592FDE00E5C90D /* ItemRepresentation.swift in Sources */,

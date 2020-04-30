@@ -22,10 +22,12 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let newUser = User(username: "Steph", password: "password1", email: "steph1234@gmail.com", userType: "diner")
-        foodTruckApiController.signUp(with: newUser) { (_) in
+//        let newUser = User(username: "Steph", password: "password1", email: "steph1234@gmail.com", userType: "diner")
+//        foodTruckApiController.signUp(with: newUser) { (_) in
+//        }
+        let loginUser = UserLogin(username: "Steph", password: "password1")
+        foodTruckApiController.signIn(with: loginUser) { (_) in
         }
-        
         // Do any additional setup after loading the view.
     }
     

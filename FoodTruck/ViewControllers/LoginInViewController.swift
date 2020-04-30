@@ -12,7 +12,7 @@ import FirebaseAuth
 class LoginInViewController: UIViewController {
 
     var handle: AuthStateDidChangeListenerHandle?
-    let apiController = FoodTruckApiController()
+    let foodTruckApiController = FoodTruckApiController()
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!

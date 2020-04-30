@@ -77,7 +77,7 @@ class FoodTruckApiController {
         }.resume()
     }
     
-    func signIn(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+    func signIn(with user: UserLogin, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
         let logInURL = baseURL.appendingPathComponent("auth/login")
         var request = URLRequest(url: logInURL)
         request.httpMethod = HTTPMethod.post.rawValue
@@ -111,10 +111,12 @@ class FoodTruckApiController {
             }
             do {
                 self.bearer = try self.jsonDecoder.decode(Bearer.self, from: data)
+                print(self.bearer?.token)
                 completion(.success(true))
             } catch {
                 print("Error decoding bearer: \(error)")
                 completion(.failure(.failedSignIn))
+                return
             }
         }.resume()
     }
