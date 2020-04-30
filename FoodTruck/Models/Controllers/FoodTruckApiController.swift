@@ -24,11 +24,9 @@ class FoodTruckApiController {
         case badData
     }
     
-    static var bearer: Bearer?
+    var bearer: Bearer?
     
     private let baseURL = URL(string: "https://food-truck-trackr-bw.herokuapp.com/api")!
-    
-    private lazy var logInURL = baseURL.appendingPathComponent("auth/login")
     
     private lazy var jsonEncoder: JSONEncoder = {
         let encoder = JSONEncoder()
@@ -61,11 +59,52 @@ class FoodTruckApiController {
                 return
             }
             if let response = response as? HTTPURLResponse,
-                response.statusCode != 200 {
+                response.statusCode != 201 {
                 print("Sign up was unsuccessful")
                 return completion(.failure(.failedSignUp))
             }
             completion(.success(true))
+        }.resume()
+    }
+    
+    func signIn(with user: User, completion: @escaping (Result<Bool, NetworkError>) -> Void) {
+        let logInURL = baseURL.appendingPathComponent("auth/login")
+        var request = URLRequest(url: logInURL)
+        request.httpMethod = HTTPMethod.post.rawValue
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        do {
+            let jsonData = try jsonEncoder.encode(user)
+            print(String(data: jsonData, encoding: .utf8)!)
+            request.httpBody = jsonData
+        } catch {
+            NSLog("Error encoding user object: \(error)")
+            completion(.failure(.failedSignIn))
+            return
+        }
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Sign in failed with error: \(error)")
+                completion(.failure(.failedSignIn))
+                return
+            }
+            if let response = response as? HTTPURLResponse,
+                response.statusCode != 201 {
+                print("Sign in was unsuccessful")
+                return completion(.failure(.failedSignIn))
+            }
+            guard let data = data else {
+                print("Data was not received")
+                completion(.failure(.noData))
+                return
+            }
+            do {
+                self.bearer = try self.jsonDecoder.decode(Bearer.self, from: data)
+                completion(.success(true))
+            } catch {
+                print("Error decoding bearer: \(error)")
+                completion(.failure(.failedSignIn))
+            }
         }.resume()
     }
 }
