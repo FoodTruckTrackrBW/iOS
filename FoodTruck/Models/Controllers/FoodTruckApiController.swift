@@ -107,4 +107,8 @@ class FoodTruckApiController {
             }
         }.resume()
     }
+    
+    func fetchTrucks() {
+        
+    }
 }

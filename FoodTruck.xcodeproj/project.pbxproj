@@ -31,6 +31,7 @@
 		5AF51BED24579B7A006C98E3 /* FoodTruckListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF51BEC24579B7A006C98E3 /* FoodTruckListViewController.swift */; };
 		5AF5DA61245A3C0A007E7014 /* Bearer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5DA60245A3C0A007E7014 /* Bearer.swift */; };
 		5AF5DA63245A4626007E7014 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5DA62245A4626007E7014 /* User.swift */; };
+		5AF5DA65245AA1E1007E7014 /* Truck.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5DA64245AA1E1007E7014 /* Truck.swift */; };
 		5AFE7DFA24592DD500E5C90D /* Truck+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE7DF824592D8300E5C90D /* Truck+Convenience.swift */; };
 		5AFE7DFC24592E1400E5C90D /* TruckRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE7DFB24592E1400E5C90D /* TruckRepresentation.swift */; };
 		5AFE7DFE24592FDE00E5C90D /* ItemRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE7DFD24592FDE00E5C90D /* ItemRepresentation.swift */; };
@@ -66,6 +67,7 @@
 		5AF51BEC24579B7A006C98E3 /* FoodTruckListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTruckListViewController.swift; sourceTree = "<group>"; };
 		5AF5DA60245A3C0A007E7014 /* Bearer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bearer.swift; sourceTree = "<group>"; };
 		5AF5DA62245A4626007E7014 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		5AF5DA64245AA1E1007E7014 /* Truck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Truck.swift; sourceTree = "<group>"; };
 		5AFE7DF824592D8300E5C90D /* Truck+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Truck+Convenience.swift"; sourceTree = "<group>"; };
 		5AFE7DFB24592E1400E5C90D /* TruckRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckRepresentation.swift; sourceTree = "<group>"; };
 		5AFE7DFD24592FDE00E5C90D /* ItemRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRepresentation.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 				5AFE7DFD24592FDE00E5C90D /* ItemRepresentation.swift */,
 				C44C17342458A8EE0023B83E /* ConvenienceInits.swift */,
 				5AF5DA60245A3C0A007E7014 /* Bearer.swift */,
+				5AF5DA64245AA1E1007E7014 /* Truck.swift */,
 				5AF5DA62245A4626007E7014 /* User.swift */,
 				5AC9C3AC2457B8880055D57A /* Controllers */,
 			);
@@ -371,6 +374,7 @@
 				5AB8611E24595269007205EA /* TruckController.swift in Sources */,
 				5AFE7DFC24592E1400E5C90D /* TruckRepresentation.swift in Sources */,
 				5AC9C3B62457F3C00055D57A /* MenuCollectionViewCell.swift in Sources */,
+				5AF5DA65245AA1E1007E7014 /* Truck.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
