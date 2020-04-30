@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct TruckDetails {
+struct TruckDetails: Codable {
     let id: Int
     let truckName: String
     let truckImage: String

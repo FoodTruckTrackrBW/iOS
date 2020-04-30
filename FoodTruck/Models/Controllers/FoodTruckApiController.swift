@@ -22,9 +22,16 @@ class FoodTruckApiController {
         case failedSignIn
         case noData
         case badData
+        case noAuth
+        case badAuth
+        case otherError
+        case noDecode
+        case badImage
+        case noEncode
     }
     
     var bearer: Bearer?
+    var truckDetails: [TruckDetails] = []
     
     private let baseURL = URL(string: "https://food-truck-trackr-bw.herokuapp.com/api")!
     
@@ -108,7 +115,55 @@ class FoodTruckApiController {
         }.resume()
     }
     
-    func fetchTrucks() {
+    func fetchTruckDetails(completion: @escaping (Result<[TruckDetails], NetworkError>) -> Void) {
+        guard let bearer = bearer else {
+            completion(.failure(.noAuth))
+            return
+        }
         
+        let truckUrl = baseURL.appendingPathComponent("diner")
+        var request = URLRequest(url: truckUrl)
+        request.httpMethod = HTTPMethod.get.rawValue
+        request.setValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let error = error {
+                print("Error receiving truck details data: \(error)")
+                completion(.failure(.otherError))
+                return
+            }
+            
+            if let response = response as? HTTPURLResponse,
+                response.statusCode == 401 {
+                completion(.failure(.badAuth))
+                return
+            }
+            
+            guard let data = data else {
+                completion(.failure(.badData))
+                return
+            }
+            // TODO: Dateformatter
+            self.jsonDecoder.dateDecodingStrategy = .deferredToDate
+            do {
+                self.truckDetails = try self.jsonDecoder.decode([TruckDetails].self, from: data)
+                completion(.success(self.truckDetails))
+            } catch {
+                print("Error decoding truck details object: \(error)")
+                completion(.failure(.noDecode))
+                return
+            }
+        }.resume()
     }
 }
+
+
+
+
+
+
+
+
+
+
+
