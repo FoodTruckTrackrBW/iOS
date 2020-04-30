@@ -10,6 +10,8 @@ import UIKit
 
 class TruckDetailViewController: UIViewController {
 
+    let foodTruckApiController = FoodTruckApiController()
+    
     @IBOutlet weak var truckNameLabel: UILabel!
     @IBOutlet weak var truckImageView: UIImageView!
     @IBOutlet weak var typeOfCusineLabel: UILabel!
@@ -18,6 +20,7 @@ class TruckDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
 
         // Do any additional setup after loading the view.
     }

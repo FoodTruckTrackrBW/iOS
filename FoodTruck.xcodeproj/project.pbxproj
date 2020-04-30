@@ -33,6 +33,7 @@
 		5AF5DA63245A4626007E7014 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5DA62245A4626007E7014 /* User.swift */; };
 		5AF5DA65245AA1E1007E7014 /* TruckDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5DA64245AA1E1007E7014 /* TruckDetails.swift */; };
 		5AF5DA67245AAA77007E7014 /* Menu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF5DA66245AAA77007E7014 /* Menu.swift */; };
+		5AF5DA69245AB9F6007E7014 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AF5DA68245AB9F6007E7014 /* GoogleService-Info.plist */; };
 		5AFE7DFA24592DD500E5C90D /* Truck+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE7DF824592D8300E5C90D /* Truck+Convenience.swift */; };
 		5AFE7DFC24592E1400E5C90D /* TruckRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE7DFB24592E1400E5C90D /* TruckRepresentation.swift */; };
 		5AFE7DFE24592FDE00E5C90D /* ItemRepresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AFE7DFD24592FDE00E5C90D /* ItemRepresentation.swift */; };
@@ -51,7 +52,6 @@
 		5AC9C3B12457C19E0055D57A /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
 		5AC9C3B32457E5430055D57A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		5AC9C3B52457F3C00055D57A /* MenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewCell.swift; sourceTree = "<group>"; };
-		5ACD52A524541FF800903F26 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5ACD52A8245425CE00903F26 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		5ACD52AB24542C1100903F26 /* UIViewController+UIAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+UIAlert.swift"; sourceTree = "<group>"; };
 		5AD8D57D2453C5FC00AB291E /* FoodTruck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodTruck.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -70,6 +70,7 @@
 		5AF5DA62245A4626007E7014 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		5AF5DA64245AA1E1007E7014 /* TruckDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckDetails.swift; sourceTree = "<group>"; };
 		5AF5DA66245AAA77007E7014 /* Menu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Menu.swift; sourceTree = "<group>"; };
+		5AF5DA68245AB9F6007E7014 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5AFE7DF824592D8300E5C90D /* Truck+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Truck+Convenience.swift"; sourceTree = "<group>"; };
 		5AFE7DFB24592E1400E5C90D /* TruckRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TruckRepresentation.swift; sourceTree = "<group>"; };
 		5AFE7DFD24592FDE00E5C90D /* ItemRepresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemRepresentation.swift; sourceTree = "<group>"; };
@@ -187,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				5AD8D57F2453C5FC00AB291E /* FoodTruck */,
+				5AF5DA68245AB9F6007E7014 /* GoogleService-Info.plist */,
 				5AD8D57E2453C5FC00AB291E /* Products */,
 				8BA32605B2FC85FBFE342CF5 /* Pods */,
 				2B08612390F784B12AEB895D /* Frameworks */,
@@ -210,7 +212,6 @@
 				5AC9C3AB2457A2B30055D57A /* Views */,
 				5AD8D5962453D6CC00AB291E /* ViewControllers */,
 				5AC9C3BE245804740055D57A /* Resources */,
-				5ACD52A524541FF800903F26 /* GoogleService-Info.plist */,
 				5AD8D58E2453C5FF00AB291E /* Info.plist */,
 			);
 			path = FoodTruck;
@@ -301,6 +302,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5AD8D58D2453C5FF00AB291E /* LaunchScreen.storyboard in Resources */,
+				5AF5DA69245AB9F6007E7014 /* GoogleService-Info.plist in Resources */,
 				5AD8D58A2453C5FF00AB291E /* Assets.xcassets in Resources */,
 				5AD8D5882453C5FC00AB291E /* Main.storyboard in Resources */,
 			);

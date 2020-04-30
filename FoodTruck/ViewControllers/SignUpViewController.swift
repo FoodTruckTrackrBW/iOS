@@ -13,6 +13,8 @@ typealias completion = Result<User?, Error>
 
 class SignUpViewController: UIViewController {
     
+    let foodTruckApiController = FoodTruckApiController()
+    
     var handle: AuthStateDidChangeListenerHandle?
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -20,6 +22,9 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let newUser = User(username: "Stephanie", password: "password", email: "steph123@gmail.com", userType: "diner")
+        foodTruckApiController.signUp(with: newUser) { (_) in
+        }
         
         // Do any additional setup after loading the view.
     }
