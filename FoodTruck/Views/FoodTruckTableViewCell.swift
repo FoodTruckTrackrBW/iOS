@@ -32,6 +32,7 @@ class FoodTruckTableViewCell: UITableViewCell {
     func updateViews() {
         guard let truck = truck else { return }
         truckName.text = truck.truckName
+        truckName.textColor = .white
     }
 
 }

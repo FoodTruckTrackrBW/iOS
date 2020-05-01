@@ -1,14 +1,14 @@
 //
-//  PreviewViewController.swift
+//  TruckRegistrationViewController.swift
 //  FoodTruck
 //
-//  Created by Stephanie Ballard on 4/24/20.
+//  Created by Stephanie Ballard on 4/30/20.
 //  Copyright © 2020 Stephanie Ballard. All rights reserved.
 //
 
 import UIKit
 
-class PreviewViewController: UIViewController {
+class TruckRegistrationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

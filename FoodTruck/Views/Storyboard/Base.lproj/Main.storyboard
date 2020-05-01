@@ -173,10 +173,10 @@
             </objects>
             <point key="canvasLocation" x="837.68115942028987" y="-646.20535714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--Truck Registration View Controller-->
         <scene sceneID="Dzo-D0-fSa">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="FOt-Vp-nRV" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="FOt-Vp-nRV" customClass="TruckRegistrationViewController" customModule="FoodTruck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DAf-J1-SJW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -286,10 +286,10 @@
             </objects>
             <point key="canvasLocation" x="2524.6376811594205" y="-646.20535714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--Driver Truck Details View Controller-->
         <scene sceneID="eVJ-D4-fza">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="8Id-6G-Vo0" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="8Id-6G-Vo0" customClass="DriverTruckDetailsViewController" customModule="FoodTruck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7af-jn-Nu9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,10 +313,10 @@
             </objects>
             <point key="canvasLocation" x="3273.913043478261" y="-646.20535714285711"/>
         </scene>
-        <!--View Controller-->
+        <!--Driver Main View Controller-->
         <scene sceneID="JJP-4X-3Ay">
             <objects>
-                <viewController id="69Q-H7-HQo" sceneMemberID="viewController">
+                <viewController id="69Q-H7-HQo" customClass="DriverMainViewController" customModule="FoodTruck" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CGv-gp-bb3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
