@@ -20,8 +20,10 @@ class FoodTruckListViewController: UIViewController {
         super.viewDidLoad()
 
         searchBar.delegate = self
+        searchBar.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.1490196078, alpha: 1)
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.1490196078, alpha: 1)
         // Do any additional setup after loading the view.
     }
     
