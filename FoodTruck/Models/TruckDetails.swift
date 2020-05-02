@@ -18,14 +18,14 @@ struct TruckDetails: Codable {
     let id: Int
     let truckName: String
     let truckImage: String
-    let cusineType: String
+    let cuisineType: String
     var departureTime: Date
     
     enum CodingKeys: String, CodingKey {
         case id
         case truckName = "truck_name"
         case truckImage = "truck_img_url"
-        case cusineType = "cusine_type"
+        case cuisineType = "cuisine_type"
         case departureTime = "departure_time"
     }
 }

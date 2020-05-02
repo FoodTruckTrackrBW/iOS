@@ -21,4 +21,11 @@ struct User: Codable {
         case email
         case userType = "user_type"
     }
+    
+    init(email: String, password: String, userType: String) {
+        self.username = email
+        self.password = password
+        self.email = email
+        self.userType = userType
+    }
 }

@@ -13,7 +13,13 @@ class FoodTruckListViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
-    let foodTruckApiController = FoodTruckApiController()
+    var foodTruckApiController: FoodTruckApiController? {
+        didSet {
+            foodTruckApiController?.fetchTruckDetails(completion: { _ in
+                
+            })
+        }
+    }
     var truckDetails: TruckDetails?
     
     override func viewDidLoad() {
@@ -21,7 +27,7 @@ class FoodTruckListViewController: UIViewController {
         
         
 
-        searchBar.delegate = self
+//        searchBar.delegate = self
         searchBar.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.1490196078, alpha: 1)
         tableView.delegate = self
         tableView.dataSource = self
@@ -49,32 +55,32 @@ class FoodTruckListViewController: UIViewController {
 extension FoodTruckListViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foodTruckApiController.truckDetails.count
+        return foodTruckApiController?.truckDetails.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TruckCell", for: indexPath) as? FoodTruckTableViewCell else { return UITableViewCell() }
-        let trucks = foodTruckApiController.truckDetails[indexPath.row]
+        let trucks = foodTruckApiController?.truckDetails[indexPath.row]
         cell.truck = trucks
         return cell
     }
 }
 
-extension FoodTruckListViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        guard let searchBarText = searchBar.text else { return }
-        foodTruckApiController.fetchTruckDetails { (result) in
-            switch result {
-            case .success(let truckDetail):
-                print(truckDetail)
-//                self.truckDetails = truckDetail
-                DispatchQueue.main.async {
-                    self.updateViews()
-                }
-            case .failure(let error):
-                print("Error fetching trucks: \(error)")
-            }
-        }
-    }
-    
-}
+//extension FoodTruckListViewController: UISearchBarDelegate {
+//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+//        guard let searchBarText = searchBar.text else { return }
+//        foodTruckApiController?.fetchTruckDetails { (result) in
+//            switch result {
+//            case .success(let truckDetail):
+//                print(truckDetail)
+////                self.truckDetails = truckDetail
+//                DispatchQueue.main.async {
+//                    self.updateViews()
+//                }
+//            case .failure(let error):
+//                print("Error fetching trucks: \(error)")
+//            }
+//        }
+//    }
+//
+//}

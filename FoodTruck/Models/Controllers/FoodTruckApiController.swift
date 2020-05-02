@@ -110,8 +110,9 @@ class FoodTruckApiController {
                 return
             }
             do {
-                self.bearer = try self.jsonDecoder.decode(Bearer.self, from: data)
-                print(self.bearer?.token)
+                let token = try self.jsonDecoder.decode(Bearer.self, from: data)
+                self.bearer = token
+                print("Sign in function \(self.bearer?.token)")
                 completion(.success(true))
             } catch {
                 print("Error decoding bearer: \(error)")
@@ -123,14 +124,14 @@ class FoodTruckApiController {
     
     func fetchTruckDetails(completion: @escaping (Result<[TruckDetails], NetworkError>) -> Void) {
         guard let bearer = bearer else {
-            completion(.failure(.noAuth))
+            //completion(.failure(.noAuth))
             return
         }
         
         let truckUrl = baseURL.appendingPathComponent("diner")
         var request = URLRequest(url: truckUrl)
         request.httpMethod = HTTPMethod.get.rawValue
-        request.setValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.setValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -140,7 +141,8 @@ class FoodTruckApiController {
             }
             
             if let response = response as? HTTPURLResponse,
-                response.statusCode == 401 {
+                response.statusCode != 200 {
+                print(response.statusCode)
                 completion(.failure(.badAuth))
                 return
             }
@@ -149,10 +151,13 @@ class FoodTruckApiController {
                 completion(.failure(.badData))
                 return
             }
-            // TODO: Dateformatter
-            self.jsonDecoder.dateDecodingStrategy = .deferredToDate
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "HH:mm:ss"
+            
+            self.jsonDecoder.dateDecodingStrategy = .formatted(dateFormatter)
             do {
-                self.truckDetails = try self.jsonDecoder.decode([TruckDetails].self, from: data)
+                self.truckDetails = try Array(self.jsonDecoder.decode(Results.self, from: data).trucks)
                 completion(.success(self.truckDetails))
             } catch {
                 print("Error decoding truck details object: \(error)")
@@ -162,19 +167,21 @@ class FoodTruckApiController {
         }.resume()
     }
     
-    func fetchMenu(completion: @escaping (Result<[Menu], NetworkError>) -> Void) {
+    func fetchMenu(truck: TruckDetails, completion: @escaping (Result<[Menu], NetworkError>) -> Void) {
         guard let bearer = bearer else {
+            print("Bearer token is nil in fetch menu func")
             completion(.failure(.noAuth))
             return
         }
         
         //https://food-truck-trackr-bw.herokuapp.com/api/diner/:id/menu
         let menuUrl = baseURL.appendingPathComponent("diner")
-                                .appendingPathComponent(":id")
-                                .appendingPathComponent("menu")
+                             .appendingPathComponent("\(truck.id)")
+                             .appendingPathComponent("menu")
+        print(menuUrl)
         var request = URLRequest(url: menuUrl)
         request.httpMethod = HTTPMethod.get.rawValue
-        request.setValue("Bearer \(bearer.token)", forHTTPHeaderField: "Authorization")
+        request.setValue("\(bearer.token)", forHTTPHeaderField: "Authorization")
         
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
@@ -184,7 +191,8 @@ class FoodTruckApiController {
             }
             
             if let response = response as? HTTPURLResponse,
-                response.statusCode == 401 {
+                response.statusCode != 200 {
+                print(response)
                 completion(.failure(.badAuth))
                 return
             }
@@ -194,7 +202,8 @@ class FoodTruckApiController {
                 return
             }
             do {
-                self.menu = try self.jsonDecoder.decode([Menu].self, from: data)
+                self.menu = try Array(self.jsonDecoder.decode(MenuResults.self, from: data).menu)
+                print(self.menu.count)
                 completion(.success(self.menu))
             } catch {
                 print("Error decoding menu object: \(error)")

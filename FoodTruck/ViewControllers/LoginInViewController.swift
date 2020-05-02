@@ -11,8 +11,9 @@ import FirebaseAuth
 
 class LoginInViewController: UIViewController {
 
+    var userType: UserType?
     var handle: AuthStateDidChangeListenerHandle?
-    let foodTruckApiController = FoodTruckApiController()
+    var foodTruckApiController: FoodTruckApiController?
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -48,17 +49,29 @@ class LoginInViewController: UIViewController {
     }
     
     @IBAction func loginButtonTapped(_ sender: UIButton) {
-//        login()
+        guard
+            let email = emailTextField.text,
+            let password = passwordTextField.text,
+            !email.isEmpty,
+            !password.isEmpty
+            else { return }
+        let user = UserLogin(username: email, password: password)
+        foodTruckApiController?.signIn(with: user, completion: { (_) in
+            print("Sign in Successful")
+            self.performSegue(withIdentifier: "LoginToMainScreenShowSegue", sender: self)
+        })
     }
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "LoginToMainScreenShowSegue" {
+            guard let destinationVC = segue.destination as? FoodTruckListViewController else { return }
+            destinationVC.foodTruckApiController = foodTruckApiController
+        }
     }
-    */
+    
     
 //    private func login() {
 //        guard let email = emailTextField.text,

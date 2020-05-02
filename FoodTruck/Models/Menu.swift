@@ -8,6 +8,10 @@
 
 import Foundation
 
+struct MenuResults: Codable {
+    let menu: [Menu]
+}
+
 struct Menu: Codable {
     let id: Int
     let truckId: Int

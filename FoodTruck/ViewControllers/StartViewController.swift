@@ -8,30 +8,55 @@
 
 import UIKit
 
+enum UserType: String {
+    case driver = "operator"
+    case diner = "diner"
+}
 class StartViewController: UIViewController {
-
+    
+    let foodtruckApiController = FoodTruckApiController()
+    var userType: UserType = .driver
+    
+    @IBOutlet weak var driverDinerSegmentedControl: UISegmentedControl!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
+    
+    @IBAction func driverDinerSegmentControlTapped(_ sender: UISegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            self.userType = .diner
+            print(userType.rawValue)
+        } else {
+            self.userType = .driver
+            print(userType.rawValue)
+        }
+    }
+    
     @IBAction func loginButtonTapped(_ sender: UIButton) {
     }
     
     @IBAction func signupButtonTapped(_ sender: UIButton) {
+        
     }
     
-    @IBAction func driverDinerSwitch(_ sender: UISwitch) {
-    }
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "SignupShowSegue" {
+            guard let signUpVC = segue.destination as? SignUpViewController else { return }
+            signUpVC.userType = userType
+            signUpVC.foodTruckApiController = foodtruckApiController
+        } else if segue.identifier == "LoginShowSegue" {
+            guard let logInVC = segue.destination as? LoginInViewController else { return }
+            logInVC.userType = userType
+            logInVC.foodTruckApiController = foodtruckApiController
+        }
+        
+        
     }
-    */
-
 }

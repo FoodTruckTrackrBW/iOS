@@ -12,9 +12,8 @@ import FirebaseAuth
 typealias completion = Result<User?, Error>
 
 class SignUpViewController: UIViewController {
-    
-    let foodTruckApiController = FoodTruckApiController()
-    
+    var foodTruckApiController: FoodTruckApiController?
+    var userType: UserType?
     var handle: AuthStateDidChangeListenerHandle?
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -22,17 +21,23 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let newUser = User(username: "Steph1231", password: "password11232", email: "steph12345123@gmail.com", userType: "diner")
+//        let newUser = User(username: "Steph1287431", password: "password982", email: "steph5123@gmail.com", userType: "diner")
 //        foodTruckApiController.signUp(with: newUser) { (_) in
 //        }
-        let loginUser = UserLogin(username: "Steph1231", password: "password11232")
-        foodTruckApiController.signIn(with: loginUser) { (_) in
-            print(self.foodTruckApiController.bearer?.token)
-        }
+//        let loginUser = UserLogin(username: "Steph1287431", password: "password982")
+//        foodTruckApiController.signIn(with: loginUser) { (_) in
+//            self.foodTruckApiController.fetchTruckDetails { (_) in
+//                print(self.foodTruckApiController.truckDetails.count)
+//                let truck = self.foodTruckApiController.truckDetails[1]
+//                self.foodTruckApiController.fetchMenu(truck: truck) { (_) in
+//
+//                }
+//            }
+//        }
         
-        foodTruckApiController.fetchTruckDetails { (_) in
-            print(self.foodTruckApiController.truckDetails.count)
-        }
+        
+        
+
         // Do any additional setup after loading the view.
     }
     
@@ -59,26 +64,36 @@ class SignUpViewController: UIViewController {
     }
     
     @IBAction func signupButtonTapped(_ sender: UIButton) {
-        signUp()
-    }
-    
-    private func signUp() {
-        guard let email = emailTextField.text,
-            let password = passwordTextField.text else { return }
-        
-        Auth.auth().createUser(withEmail: email, password: password) { auth, error in
-            if let error = error {
-                print("Error creating account: \(error)")
-                self.presentUserInfoAlert(title: "Error!", message: "There was a problem creating your account, please try again.")
-            } else {
-                if let auth = auth {
-                    print("Success!!!")
-                    print(auth.user.uid)
-                    print(auth.user.email as Any)
-                }
-            }
+        guard
+            let email = emailTextField.text,
+            let userType = userType,
+            let password = passwordTextField.text,
+            !password.isEmpty,
+            !email.isEmpty
+            else { return }
+        let user = User(email: email, password: password, userType: userType.rawValue)
+        foodTruckApiController?.signUp(with: user) { (_) in
+            print("Sign Up Successful!")
         }
     }
+    
+//    private func signUp() {
+//        guard let email = emailTextField.text,
+//            let password = passwordTextField.text else { return }
+//
+//        Auth.auth().createUser(withEmail: email, password: password) { auth, error in
+//            if let error = error {
+//                print("Error creating account: \(error)")
+//                self.presentUserInfoAlert(title: "Error!", message: "There was a problem creating your account, please try again.")
+//            } else {
+//                if let auth = auth {
+//                    print("Success!!!")
+//                    print(auth.user.uid)
+//                    print(auth.user.email as Any)
+//                }
+//            }
+//        }
+//    }
     /*
      // MARK: - Navigation
      

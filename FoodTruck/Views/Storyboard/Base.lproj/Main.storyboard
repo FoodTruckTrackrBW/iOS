@@ -47,39 +47,26 @@
                                     <segue destination="Egg-M0-bxP" kind="presentation" identifier="LoginShowSegue" id="Q41-ap-MiA"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="wwo-sF-MuI">
-                                <rect key="frame" x="118" y="667" width="189" height="31"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Driver" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fdN-Et-cAT">
-                                        <rect key="frame" x="0.0" y="0.0" width="57" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oIX-Wp-Oxn">
-                                        <rect key="frame" x="73" y="0.0" width="51" height="31"/>
-                                        <color key="onTintColor" red="0.91764705879999997" green="0.53725490200000003" blue="0.12941176469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="driverDinerSwitch:" destination="CQe-XX-FJo" eventType="valueChanged" id="xCB-O0-GuT"/>
-                                        </connections>
-                                    </switch>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Diner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DKA-Qk-3bJ">
-                                        <rect key="frame" x="138" y="0.0" width="51" height="31"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                            </stackView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="ADG-Ka-RiE">
+                                <rect key="frame" x="151" y="395" width="112" height="32"/>
+                                <segments>
+                                    <segment title="Diner"/>
+                                    <segment title="Driver"/>
+                                </segments>
+                                <connections>
+                                    <action selector="driverDinerSegmentControlTapped:" destination="CQe-XX-FJo" eventType="valueChanged" id="BzC-XL-PfO"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Hak-6c-fpz" firstAttribute="top" secondItem="dvd-Ca-pfo" secondAttribute="topMargin" constant="-88" id="4cd-1n-GrS"/>
-                            <constraint firstItem="wwo-sF-MuI" firstAttribute="centerY" secondItem="dvd-Ca-pfo" secondAttribute="centerY" constant="234.5" id="It2-Fe-J70"/>
+                            <constraint firstItem="ADG-Ka-RiE" firstAttribute="centerX" secondItem="7TB-Y2-pyz" secondAttribute="centerX" id="5QU-yY-wwj"/>
                             <constraint firstItem="jLd-9M-Btv" firstAttribute="trailing" secondItem="WTD-Lz-8Hs" secondAttribute="trailing" constant="110" id="JO9-va-x5G"/>
+                            <constraint firstItem="ADG-Ka-RiE" firstAttribute="leading" secondItem="jLd-9M-Btv" secondAttribute="leading" constant="151" id="LWe-mw-9FF"/>
                             <constraint firstItem="7TB-Y2-pyz" firstAttribute="trailing" secondItem="jLd-9M-Btv" secondAttribute="trailing" id="M0h-zA-Inj"/>
+                            <constraint firstItem="ADG-Ka-RiE" firstAttribute="top" secondItem="jLd-9M-Btv" secondAttribute="top" constant="351" id="Tn1-Hw-uXe"/>
                             <constraint firstItem="WTD-Lz-8Hs" firstAttribute="top" secondItem="VOV-tP-Sdc" secondAttribute="bottom" constant="8" id="UzV-z7-cib"/>
-                            <constraint firstItem="wwo-sF-MuI" firstAttribute="leading" secondItem="jLd-9M-Btv" secondAttribute="leading" constant="118" id="XOO-OO-R0o"/>
                             <constraint firstItem="Hak-6c-fpz" firstAttribute="leading" secondItem="7TB-Y2-pyz" secondAttribute="leading" id="Zob-3P-rO0"/>
                             <constraint firstItem="VOV-tP-Sdc" firstAttribute="leading" secondItem="jLd-9M-Btv" secondAttribute="leading" constant="120" id="ao0-ZV-rHV"/>
                             <constraint firstItem="Hak-6c-fpz" firstAttribute="centerY" secondItem="dvd-Ca-pfo" secondAttribute="centerY" id="ddY-sx-ffG"/>
@@ -93,6 +80,9 @@
                         <viewLayoutGuide key="safeArea" id="jLd-9M-Btv"/>
                     </view>
                     <navigationItem key="navigationItem" id="7vj-vN-fEM"/>
+                    <connections>
+                        <outlet property="driverDinerSegmentedControl" destination="ADG-Ka-RiE" id="hTH-24-5bd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U1W-Sv-FtM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
