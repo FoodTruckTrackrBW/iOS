@@ -10,13 +10,15 @@ import UIKit
 
 class FoodTruckListViewController: UIViewController {
 
-    @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableView: UITableView!
     
     var foodTruckApiController: FoodTruckApiController? {
         didSet {
             foodTruckApiController?.fetchTruckDetails(completion: { _ in
-                
+                DispatchQueue.main.async {
+                    print(self.foodTruckApiController?.truckDetails.first?.truckName)
+                    self.tableView.reloadData()
+                }
             })
         }
     }
@@ -26,9 +28,10 @@ class FoodTruckListViewController: UIViewController {
         super.viewDidLoad()
         
         
+        
 
-//        searchBar.delegate = self
-        searchBar.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.1490196078, alpha: 1)
+        
+        
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.1490196078, alpha: 1)
@@ -60,8 +63,17 @@ extension FoodTruckListViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TruckCell", for: indexPath) as? FoodTruckTableViewCell else { return UITableViewCell() }
-        let trucks = foodTruckApiController?.truckDetails[indexPath.row]
-        cell.truck = trucks
+        let truck = foodTruckApiController?.truckDetails[indexPath.row]
+        cell.truck = truck
+        cell.backgroundColor = #colorLiteral(red: 0.1490196078, green: 0.1490196078, blue: 0.1490196078, alpha: 1)
+        cell.textLabel?.textColor = .white
+        cell.textLabel?.text = truck?.truckName
+//        cell.detailTextLabel?.text = truck?.cuisineType
+//        if let urlString = truck?.truckImage, let url = URL(string: urlString), let data = try? Data(contentsOf: url) {
+//            DispatchQueue.main.async {
+//                cell.imageView?.image = UIImage(data: data)
+//            }
+//        }
         return cell
     }
 }

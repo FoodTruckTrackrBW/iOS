@@ -7,14 +7,14 @@
 //
 
 import UIKit
-import FirebaseAuth
+
 
 typealias completion = Result<User?, Error>
 
 class SignUpViewController: UIViewController {
     var foodTruckApiController: FoodTruckApiController?
     var userType: UserType?
-    var handle: AuthStateDidChangeListenerHandle?
+//    var handle: AuthStateDidChangeListenerHandle?
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -41,13 +41,13 @@ class SignUpViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        handle = Auth.auth().addStateDidChangeListener({ auth, user in
-            
-        })
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        
+//        handle = Auth.auth().addStateDidChangeListener({ auth, user in
+//            
+//        })
+//    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)

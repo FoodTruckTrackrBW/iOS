@@ -142,7 +142,7 @@ class FoodTruckApiController {
             
             if let response = response as? HTTPURLResponse,
                 response.statusCode != 200 {
-                print(response.statusCode)
+                print(response)
                 completion(.failure(.badAuth))
                 return
             }

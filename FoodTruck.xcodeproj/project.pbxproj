@@ -225,8 +225,8 @@
 		5AD8D5962453D6CC00AB291E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				5AF51BEC24579B7A006C98E3 /* FoodTruckListViewController.swift */,
 				5AD8D5942453D6C300AB291E /* StartViewController.swift */,
+				5AF51BEC24579B7A006C98E3 /* FoodTruckListViewController.swift */,
 				5A7A0A5E245BB07400371A63 /* TruckRegistrationViewController.swift */,
 				5AD8D5972453D6E900AB291E /* LoginInViewController.swift */,
 				5AD8D5992453D6F900AB291E /* SignUpViewController.swift */,
@@ -258,7 +258,6 @@
 				5AD8D5792453C5FC00AB291E /* Sources */,
 				5AD8D57A2453C5FC00AB291E /* Frameworks */,
 				5AD8D57B2453C5FC00AB291E /* Resources */,
-				528E3BC29B0631CE6F5800C0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -317,23 +316,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		528E3BC29B0631CE6F5800C0 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodTruck/Pods-FoodTruck-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FoodTruck/Pods-FoodTruck-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodTruck/Pods-FoodTruck-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6371C8BE8E9C3D9CE00EB8EF /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

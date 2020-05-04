@@ -7,12 +7,12 @@
 //
 
 import UIKit
-import FirebaseAuth
+
 
 class LoginInViewController: UIViewController {
 
     var userType: UserType?
-    var handle: AuthStateDidChangeListenerHandle?
+//    var handle: AuthStateDidChangeListenerHandle?
     var foodTruckApiController: FoodTruckApiController?
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -25,20 +25,20 @@ class LoginInViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        handle = Auth.auth().addStateDidChangeListener({ auth, user in
-            if Auth.auth().currentUser != nil {
-                self.performSegue(withIdentifier: "LoginToMainScreenShowSegue", sender: self)
-            }
-        })
-    }
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//
+//        handle = Auth.auth().addStateDidChangeListener({ auth, user in
+//            if Auth.auth().currentUser != nil {
+//                self.performSegue(withIdentifier: "LoginToMainScreenShowSegue", sender: self)
+//            }
+//        })
+//    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        Auth.auth().removeStateDidChangeListener(handle!)
+//        Auth.auth().removeStateDidChangeListener(handle!)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -58,7 +58,16 @@ class LoginInViewController: UIViewController {
         let user = UserLogin(username: email, password: password)
         foodTruckApiController?.signIn(with: user, completion: { (_) in
             print("Sign in Successful")
-            self.performSegue(withIdentifier: "LoginToMainScreenShowSegue", sender: self)
+            
+            DispatchQueue.main.async {
+                let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+                let nav = storyboard.instantiateViewController(identifier: "DinerNavigation") as! UINavigationController
+                let tableViewVC = nav.topViewController as! FoodTruckListViewController
+                tableViewVC.foodTruckApiController = self.foodTruckApiController
+                nav.modalPresentationStyle = .fullScreen
+                self.present(nav, animated: true, completion: nil)
+            }
+            
         })
     }
     

@@ -45,7 +45,7 @@ class StartViewController: UIViewController {
     
     
     // MARK: - Navigation
-
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SignupShowSegue" {
             guard let signUpVC = segue.destination as? SignUpViewController else { return }
@@ -55,8 +55,12 @@ class StartViewController: UIViewController {
             guard let logInVC = segue.destination as? LoginInViewController else { return }
             logInVC.userType = userType
             logInVC.foodTruckApiController = foodtruckApiController
+        } else if segue.identifier == "StartVCtoTableViewSegue" {
+            guard let foodtruckTableViewVC = segue.destination as? FoodTruckListViewController else { return }
+            foodtruckTableViewVC.foodTruckApiController = foodtruckApiController
         }
-        
-        
     }
+    
+    
 }
+
