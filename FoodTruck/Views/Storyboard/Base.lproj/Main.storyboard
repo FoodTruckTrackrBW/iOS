@@ -611,26 +611,29 @@
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3793" translatesAutoresizingMaskIntoConstraints="NO" id="Vpp-VB-Szq">
                                 <rect key="frame" x="-111" y="12" width="525" height="830"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="525" id="BNs-ng-Ct2"/>
+                                </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="6BT-3w-64F">
                                 <rect key="frame" x="44.5" y="144" width="325" height="554"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Truck Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kpD-pT-z7z">
                                         <rect key="frame" x="85.5" y="0.0" width="154" height="45.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45.5" id="jVi-br-Aca"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="e70cdfb502e889f54efe7f5757160141" translatesAutoresizingMaskIntoConstraints="NO" id="0ut-11-7t5">
                                         <rect key="frame" x="0.0" y="74.5" width="325" height="250"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="250" id="IgA-3Y-SQ1"/>
-                                        </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type of Cusine" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OL2-Wu-eea">
                                         <rect key="frame" x="98" y="353.5" width="129" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="24" id="fU6-9B-dPZ"/>
+                                            <constraint firstAttribute="height" constant="24" id="XDc-sO-92B"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -639,7 +642,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NUh-AQ-ktb">
                                         <rect key="frame" x="136.5" y="406.5" width="52" height="21.5"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21.5" id="dvg-DW-fXb"/>
+                                            <constraint firstAttribute="height" constant="21.5" id="Jdg-9l-7W3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -648,7 +651,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eha-ge-Mmr">
                                         <rect key="frame" x="139.5" y="457" width="46" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="gJ6-pA-E09"/>
+                                            <constraint firstAttribute="height" constant="34" id="ibW-wP-H8B"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Menu"/>
@@ -660,7 +663,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V3q-vj-lgs">
                                         <rect key="frame" x="127.5" y="520" width="70" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="34" id="nfe-P2-vsQ"/>
+                                            <constraint firstAttribute="height" constant="34" id="rqo-Yw-Iy1"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Location"/>
@@ -670,30 +673,26 @@
                                         </connections>
                                     </button>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstItem="0ut-11-7t5" firstAttribute="leading" secondItem="6BT-3w-64F" secondAttribute="leadingMargin" id="5va-KK-0ug"/>
-                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6BT-3w-64F" firstAttribute="centerY" secondItem="m2l-GB-STh" secondAttribute="centerY" id="6dD-Kw-Hz4"/>
-                            <constraint firstItem="S7v-Z7-Bsc" firstAttribute="bottom" secondItem="Vpp-VB-Szq" secondAttribute="bottom" constant="-34" id="DhY-LY-zPz"/>
-                            <constraint firstItem="Vpp-VB-Szq" firstAttribute="leading" secondItem="S7v-Z7-Bsc" secondAttribute="leading" constant="-111" id="FXm-tL-hGV"/>
-                            <constraint firstItem="6BT-3w-64F" firstAttribute="centerX" secondItem="m2l-GB-STh" secondAttribute="centerX" id="KqI-ZV-qJ5"/>
-                            <constraint firstItem="6BT-3w-64F" firstAttribute="top" secondItem="S7v-Z7-Bsc" secondAttribute="top" constant="88" id="USU-as-Ohu"/>
-                            <constraint firstItem="6BT-3w-64F" firstAttribute="leading" secondItem="S7v-Z7-Bsc" secondAttribute="leading" constant="44.5" id="ebw-Vo-d2W"/>
-                            <constraint firstItem="Vpp-VB-Szq" firstAttribute="top" secondItem="S7v-Z7-Bsc" secondAttribute="top" constant="-44" id="kvp-f1-Zq0"/>
-                            <constraint firstItem="S7v-Z7-Bsc" firstAttribute="trailing" secondItem="Vpp-VB-Szq" secondAttribute="trailing" id="yah-Kt-hDR"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Vpp-VB-Szq" secondAttribute="bottom" constant="-34" id="9fj-0E-kaa"/>
+                            <constraint firstItem="Vpp-VB-Szq" firstAttribute="trailing" secondItem="S7v-Z7-Bsc" secondAttribute="trailing" id="AN0-F3-9vm"/>
+                            <constraint firstItem="6BT-3w-64F" firstAttribute="leading" secondItem="S7v-Z7-Bsc" secondAttribute="leading" constant="44.5" id="W3C-59-5HM"/>
+                            <constraint firstItem="6BT-3w-64F" firstAttribute="top" secondItem="S7v-Z7-Bsc" secondAttribute="top" constant="88" id="fZS-xQ-M8e"/>
+                            <constraint firstItem="Vpp-VB-Szq" firstAttribute="top" secondItem="m2l-GB-STh" secondAttribute="topMargin" constant="-44" id="mKz-wo-tbW"/>
+                            <constraint firstItem="6BT-3w-64F" firstAttribute="centerX" secondItem="m2l-GB-STh" secondAttribute="centerX" id="oA9-Fj-PHX"/>
+                            <constraint firstItem="6BT-3w-64F" firstAttribute="centerY" secondItem="m2l-GB-STh" secondAttribute="centerY" id="p00-k9-ztC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S7v-Z7-Bsc"/>
                     </view>
                     <navigationItem key="navigationItem" id="Ovx-m3-okd"/>
                     <connections>
-                        <outlet property="ratingLabel" destination="NUh-AQ-ktb" id="jye-Qw-sDW"/>
-                        <outlet property="truckImageView" destination="0ut-11-7t5" id="UEd-Jf-c6M"/>
-                        <outlet property="truckNameLabel" destination="kpD-pT-z7z" id="r7c-vd-2ku"/>
-                        <outlet property="typeOfCusineLabel" destination="OL2-Wu-eea" id="bYw-BD-ZmD"/>
+                        <outlet property="ratingLabel" destination="NUh-AQ-ktb" id="Jwg-R9-QEG"/>
+                        <outlet property="truckImageView" destination="0ut-11-7t5" id="Hbl-gC-zdP"/>
+                        <outlet property="truckNameLabel" destination="kpD-pT-z7z" id="bDv-g7-e9l"/>
+                        <outlet property="typeOfCusineLabel" destination="OL2-Wu-eea" id="huY-4T-PUh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PMH-y9-FL7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

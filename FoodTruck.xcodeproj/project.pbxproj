@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -225,15 +225,15 @@
 		5AD8D5962453D6CC00AB291E /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				5AD8D5992453D6F900AB291E /* SignUpViewController.swift */,
+				5AD8D5972453D6E900AB291E /* LoginInViewController.swift */,
 				5AD8D5942453D6C300AB291E /* StartViewController.swift */,
 				5AF51BEC24579B7A006C98E3 /* FoodTruckListViewController.swift */,
-				5A7A0A5E245BB07400371A63 /* TruckRegistrationViewController.swift */,
-				5AD8D5972453D6E900AB291E /* LoginInViewController.swift */,
-				5AD8D5992453D6F900AB291E /* SignUpViewController.swift */,
-				5AC9C3B32457E5430055D57A /* MapViewController.swift */,
 				5AC9C3AF2457B9CD0055D57A /* TruckDetailViewController.swift */,
 				5AC9C3B12457C19E0055D57A /* MenuCollectionViewController.swift */,
+				5AC9C3B32457E5430055D57A /* MapViewController.swift */,
 				5A7A0A5C245BB05200371A63 /* DriverMainViewController.swift */,
+				5A7A0A5E245BB07400371A63 /* TruckRegistrationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";

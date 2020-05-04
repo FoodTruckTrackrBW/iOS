@@ -10,7 +10,8 @@ import UIKit
 
 class TruckDetailViewController: UIViewController {
 
-    let foodTruckApiController = FoodTruckApiController()
+    var foodTruckApiController: FoodTruckApiController?
+    var truckDetails: TruckDetails?
     
     @IBOutlet weak var truckNameLabel: UILabel!
     @IBOutlet weak var truckImageView: UIImageView!
@@ -20,9 +21,7 @@ class TruckDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
-        // Do any additional setup after loading the view.
+        updateViews()
     }
     
     @IBAction func menuButtonTapped(_ sender: UIButton) {
@@ -41,6 +40,25 @@ class TruckDetailViewController: UIViewController {
         } else if segue.identifier == "MapViewShowSegue" {
             guard let destination = segue.destination as? MapViewController else { return }
             
+        }
+    }
+    
+    private func updateViews() {
+        guard isViewLoaded else { return }
+        if let truck = truckDetails {
+            truckNameLabel.text = truck.truckName
+            truckNameLabel.textColor = .white
+            truckNameLabel.adjustsFontSizeToFitWidth = true
+            typeOfCusineLabel.text = truck.cuisineType
+            
+            do {
+                guard let url = URL(string: truck.truckImage) else { return }
+                let data = try Data(contentsOf: url)
+                let image = UIImage(data: data)
+                truckImageView.image = image
+            } catch {
+                print(error)
+            }
         }
     }
 }

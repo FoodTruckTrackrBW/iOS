@@ -39,15 +39,22 @@ class FoodTruckListViewController: UIViewController {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    indexPathForSelectedRow property on I think the table view in the prepare for segue function
+//    So if segue.ident == “name of segue” {
+//    Then guard let the destinationVC and let indexPath = tableView.indexPathForSelectedRow else { return}
+    
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "TruckDetailShowSegue" {
+            guard let destinationVC = segue.destination as? TruckDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow else { return }
+            destinationVC.truckDetails = foodTruckApiController?.truckDetails[indexPath.row]
+        }
     }
-    */
+    
 
     private func updateViews() {
         
@@ -78,21 +85,3 @@ extension FoodTruckListViewController: UITableViewDataSource, UITableViewDelegat
     }
 }
 
-//extension FoodTruckListViewController: UISearchBarDelegate {
-//    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-//        guard let searchBarText = searchBar.text else { return }
-//        foodTruckApiController?.fetchTruckDetails { (result) in
-//            switch result {
-//            case .success(let truckDetail):
-//                print(truckDetail)
-////                self.truckDetails = truckDetail
-//                DispatchQueue.main.async {
-//                    self.updateViews()
-//                }
-//            case .failure(let error):
-//                print("Error fetching trucks: \(error)")
-//            }
-//        }
-//    }
-//
-//}
